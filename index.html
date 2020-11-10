@@ -5,84 +5,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style></style>
+    <link rel="stylesheet" href="./foods.css">
 </head>
 
 <body>
 
     <div class="container">
         <div class="row">
-            <div class="title">
+            <div class="title col-12 col-md-12 col-lg-12 col-xl-12 textCenter">
                 <h1>農村地方美食小吃特色料理
                 </h1>
             </div>
-            <div class="menu">
-                <select>
-                    <option value="volvo">Volvo</option>
-                    <option value="saab">Saab</option>
-                    <option value="opel">Opel</option>
-                    <option value="audi">Audi</option>
+            <div class="menu col-12 col-md-12 col-lg-12 col-xl-12 textCenter">
+                <select id="menuCity">
+                    <option value="City" disabled>請選擇城市</option>
                 </select>
-                <select>
-                    <option value="volvo">Volvo</option>
-                    <option value="saab">Saab</option>
-                    <option value="opel">Opel</option>
-                    <option value="audi">Audi</option>
+                <select id="menuTown">
+                    <option value="Town">請選擇鄉鎮</option>
                 </select>
             </div>
-            <section id="foodsData"></section>
+        </div>
+        <div class="row" id="foodsData">
+
+        </div>
+        <div class="row">
+            <div class="footer col-12 col-md-12 col-lg-12 col-xl-12 textCenter">
+                <h3>Henry Wu - 練習作品</h3>
+            </div>
         </div>
     </div>
 
+    <div id="loading"><img src="./img/preloader.gif" alt=""></div>
 
-    <script>
-        var foodUrl = '/Users/bear/Desktop/Cmoney/data.json';
-        var data = new XMLHttpRequest();
-        data.open('GET', foodUrl);
-        data.responseType = 'json';
-        data.send();
-
-        data.onload = function () {
-            var localFood = data.response;
-            showFood(localFood);
-        }
-
-        var foodsData = document.getElementById('foodsData');
-
-        function showFood(Obj) {
-            var foods = Obj;
-            for (var i = 0; i < foods.length; i++) {
-                var myArticle = document.createElement('Article');
-                var myH2 = document.createElement('h3');
-                var myPara1 = document.createElement('p');
-                var myPara2 = document.createElement('p');
-                var myPara3 = document.createElement('p');
-                var myList = document.createElement('button');
-                var mydiv = document.createElement('div');
-
-                myH2.textContent = pizzas[i].pdName;
-                myPara1.textContent = '餡料:' + pizzas[i].stuffing;
-                myPara2.textContent = pizzas[i].description;
-                myPara3.textContent = '♥♥♥♥♥';
-                mydiv.innerHTML = `<img src="./img/${pizzas[i].pdImage}" width="200" height="200" >`;
-
-                myArticle.appendChild(mydiv);
-                myArticle.appendChild(myH2);
-                myArticle.appendChild(myPara3);
-                myArticle.appendChild(myList);
-                myArticle.appendChild(myPara1);
-                myArticle.appendChild(myPara2);
-
-                section.appendChild(myArticle);
-                myArticle.className = ('col-md-3 col-12 px-3 bg-light border-top border-info');
-                myH2.className = 'mt-2';
-                myPara3.className = 'text-danger d-flex justify-content-end';
-                mydiv.className = 'd-flex justify-content-center bg-warning mt-3';
-                myList.className = 'btn btn-dark w-100 text-center mb-2';
-                myList.type = 'button';
-            }
-        }
-    </script>
+    <script src="./foodjs.js"></script>
 </body>
 
 </html>
